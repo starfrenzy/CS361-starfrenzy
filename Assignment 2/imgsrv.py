@@ -8,9 +8,13 @@ while True:
         if read_data.isnumeric():
             our_num = float(read_data)
 
-# erase image-service.txt
+        # erase image-service.txt
+        f.truncate()  # clears file
+        f.seek(0)  # moves to the beginning of the file
 
-# write path to the image
+        # write path to the image
+        f.write(f"File Path: /Users/jessifrenzel/PycharmProjects/CS361-starfrenzy/Assignment 2/cs361_images/{our_num}")
 
+        # handoff to UI
 
-#handoff to UI
+        # close file - happens automatically because we used 'with'
