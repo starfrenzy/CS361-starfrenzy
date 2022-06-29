@@ -1,4 +1,5 @@
 import time
+import random
 
 while True:
     time.sleep(1)
@@ -6,7 +7,7 @@ while True:
         read_data = f.read()
         for line in read_data:
             if line == "run":
-                #generate random number
+                rand_num = random.randint(1, 5)
                 # erase "run" from prng-services.txt
-                #write random number to prng-service.txt
+                # write rand_num to prng-service.txt
         # close file - happens automatically because we used 'with'
