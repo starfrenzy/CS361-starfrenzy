@@ -13,7 +13,7 @@ while True:
         f.seek(0)  # moves to the beginning of the file
 
         # write path to the image
-        f.write(f"File Path: /Users/jessifrenzel/PycharmProjects/CS361-starfrenzy/Assignment 2/cs361_images/{our_num}")
+        f.write(f"/Users/jessifrenzel/PycharmProjects/CS361-starfrenzy/Assignment 2/cs361_images/{our_num}")
 
         # handoff to UI
 

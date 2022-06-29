@@ -24,4 +24,4 @@ if response == "1":
     # return here to read image-service.txt and display the path to the user
         with open("image-service.txt", "r", encoding="utf-8") as f:
             img_path = f.readline()
-            print(img_path)
+            print(f"File Path: {img_path}")
