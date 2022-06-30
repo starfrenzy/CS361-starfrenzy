@@ -20,7 +20,7 @@ if response == "1":
             rand_num = read_prng.read()
             print(f"prng is reading {rand_num} as rand_num")
 
-        if rand_num != "run":
+        if rand_num != "run" and rand_num != "":
             with open("image-service.txt", "w") as write_image:
                 write_image.write(rand_num)
                 print(f"IMAGE is writing {rand_num} as rand_num")
