@@ -3,7 +3,7 @@ import time
 # read image-service.txt
 while True:
     time.sleep(1)
-    f = open("image-service.txt", "r", encoding="utf-8")
+    f = open("image-service.txt", "r")
     read_data = f.read().strip()
 
     if read_data != "run" and read_data != "" and "/Users/jessifrenzel" not in read_data:
@@ -13,5 +13,6 @@ while True:
 
             # write path to the image
             f.write(f"/Users/jessifrenzel/PycharmProjects/CS361-starfrenzy/Assignment 2/cs361_images/{our_num}")
+            print(f"the path being written to IMAGE is /Users/jessifrenzel/PycharmProjects/CS361-starfrenzy/Assignment 2/cs361_images/{our_num}")
 
         # close file - happens automatically because we used 'with'

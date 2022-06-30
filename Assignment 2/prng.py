@@ -3,9 +3,8 @@ import random
 
 while True:
     # open file
-    f = open("prng-service.txt", "r", encoding="utf-8")
+    f = open("prng-service.txt", "r")
     read_data = f.read()
-    print(f"PRNG read-data read this: {read_data}")
 
     if read_data == "run":
         f.close()
