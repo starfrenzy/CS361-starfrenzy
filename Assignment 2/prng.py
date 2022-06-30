@@ -16,7 +16,6 @@ while True:
         # write rand_num to prng-service.txt
         rand_str = str(rand_num)
         f.write(rand_str)
-        print(f"we are writing this to prng-service:{rand_str} ")
         f.close()
 
     # close file - happens automatically because we used 'with'
