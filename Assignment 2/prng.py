@@ -2,21 +2,21 @@ import time
 import random
 
 while True:
-    time.sleep(1)
     # open file
-    with open("prng-service.txt", "r+", encoding="utf-8") as f:
-        read_data = f.read()
-        for line in read_data:
-            if line == "run":
-                # generate random number from 1 to 5
-                rand_num = random.randint(1, 5)
+    f = open("prng-service.txt", "r", encoding="utf-8")
+    read_data = f.read()
+    print(f"PRNG read-data read this: {read_data}")
 
-                # erase "run" from prng-services.txt
-                f.truncate()  # clears prng-services.txt
-                f.seek(0)  # moves to the beginning of the file
+    if read_data == "run":
+        f.close()
+        f = open("prng-service.txt", "w")
+        # generate random number from 1 to 5
+        rand_num = random.randint(1, 5)
 
-                # write rand_num to prng-service.txt
-                rand_str = str(rand_num)
-                f.write(rand_str)
+        # write rand_num to prng-service.txt
+        rand_str = str(rand_num)
+        f.write(rand_str)
+        print(f"we are writing this to prng-service:{rand_str} ")
+        f.close()
 
     # close file - happens automatically because we used 'with'
