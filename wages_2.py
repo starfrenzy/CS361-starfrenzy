@@ -1,11 +1,15 @@
 import time
 
+
 def wages_calc(day=0, daily_totals={}):
+    """
+    This function asks a user for daily hours worked and wages paid and calculates a payment sum.
+    """
     print("Let's record today's hours.")
     todays_hours = hours_input()
     daily_totals[day] = todays_hours
     day += 1
-    print(daily_totals)  # todo remove before submit/video
+    # print(daily_totals)  # use this to check whether a "n" response in 'hours_input' records "None" in the daily_totals dictionary
 
     if day != 7:
         print("Thanks! See you tomorrow.")
@@ -17,7 +21,7 @@ def wages_calc(day=0, daily_totals={}):
         print(f"It's payday! \n{weekly_sum} is the total number of hours worked this week.")
         wages = wages_input()
         payment = weekly_sum * wages
-        print(f"The payment should be ${payment}.")
+        print(f"\nThe total amount due is ${payment}.")
 
 
 def wages_input():  # separate function to allow for CSH 5 Undo/Redo/Backtracking
@@ -34,7 +38,7 @@ def wages_input():  # separate function to allow for CSH 5 Undo/Redo/Backtrackin
         return wages
 
     else:
-        wages_input()  # todo fix error returning NONE - messing up calculations
+        wages_input()
 
 
 def hours_input():
@@ -51,7 +55,7 @@ def hours_input():
         return hours
 
     else:
-        hours_input()
+        hours_input()    # todo fix error returning NONE - messing up calculations
 
 
 wages_calc()
