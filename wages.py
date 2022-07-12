@@ -4,9 +4,9 @@ def wage_calc(day=0, daily_totals={}):
     new_week = input("Hi! Is this a new week? Y/N: ")
 
     if new_week.lower() == "y":  # .lower() in case they put in upper case
-        start = input("How much do you pay per hour? ")
-        wages = float(start)
-        print(f"wages: {wages}")
+        # start = input("How much do you pay per hour? ")
+        # wages = float(start)
+        # print(f"wages: {wages}")
         todays_hours = hours_input()
         daily_totals[day] = todays_hours
         print("Thanks! See you tomorrow.")
@@ -32,12 +32,29 @@ def wage_calc(day=0, daily_totals={}):
         wage_calc(day, daily_totals)  # if input was not y/n, run again
 
 def wages_input():  # separate function to allow for CSH 5 Undo/Redo/Backtracking
-    wages =
-def hours_input():
-    hours = input("How many hours were worked today? ")
-    verify_1 = input(f"Is {hours} hours correct? Y/N: ")  # CSH 5 Undo/Redo/Backtracking
+    """
+    This function asks the user how much they pay per hour, verifies that input, and returns the wages.
+    Verification allows for CSH 5: Undo/Redo/Backtracking.
+    """
+    start = input("How much do you pay per hour? ")
+    wages = float(start)
+    verify_1 = input(f"Is ${wages} per hour the correct wage? Y/N: ")  # CSH 5 Undo/Redo/Backtracking
 
     if verify_1.lower() == "y":
+        return wages
+
+    else:
+        wages_input()
+
+def hours_input():
+    """
+    This function asks the user how many hours were worked today, verifies that input, and returns the number of hours.
+    Verification allows for CSH 5: Undo/Redo/Backtracking.
+    """
+    hours = input("How many hours were worked today? ")
+    verify_2 = input(f"Is {hours} hours correct? Y/N: ")  # CSH 5 Undo/Redo/Backtracking
+
+    if verify_2.lower() == "y":
         return hours
 
     else:
