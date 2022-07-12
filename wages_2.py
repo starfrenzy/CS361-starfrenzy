@@ -1,39 +1,24 @@
 import time
 
 def wages_calc(day=0, daily_totals={}):
-    new_week = input("Hi! Is this a new week? Y/N: ")  # todo: consider removing this if not needed to determine new week
+    print("Let's record today's hours.")
+    todays_hours = hours_input()
+    daily_totals[day] = todays_hours
+    day += 1
+    print(daily_totals)  # todo remove before submit/video
 
-    if new_week.lower() == "y":  # .lower() in case they put in upper case
-        # start = input("How much do you pay per hour? ")
-        # wages = float(start)
-        # print(f"wages: {wages}")
-        todays_hours = hours_input()
-        daily_totals[day] = todays_hours
+    if day != 7:
         print("Thanks! See you tomorrow.")
         time.sleep(3)
         wages_calc(day, daily_totals)
 
-    elif new_week.lower() == "n":
-        day += 1
-        todays_hours = hours_input()
-        daily_totals[day] = todays_hours
-        print(daily_totals)  # todo remove before submit/video
+    else:  # stop and calculate
+        weekly_sum = daily_totals[0] + daily_totals[1] + daily_totals[2] + daily_totals[3] + daily_totals[4] + daily_totals[5] + daily_totals[6]
+        print(f"It's payday! \n{weekly_sum} is the total number of hours worked this week.")
+        wages = wages_input()
+        payment = weekly_sum * wages
+        print(f"The payment should be ${payment}.")
 
-        if day != 6:
-            print("Thanks! See you tomorrow.")
-            time.sleep(3)
-            wages_calc(day, daily_totals)
-
-        else:  # stop and calculate
-            weekly_sum = daily_totals[0] + daily_totals[1] + daily_totals[2] + daily_totals[3] + daily_totals[4] + daily_totals[5] + daily_totals[6]
-            print("It's payday! n/"
-                  f"{weekly_sum} is the total number of hours worked this week.")
-            wages = wages_input()
-            print(f"The payment should be ${wages}*{weekly_sum}.")
-
-
-    else:
-        wages_calc(day, daily_totals)  # if input was not y/n, run again
 
 def wages_input():  # separate function to allow for CSH 5 Undo/Redo/Backtracking
     """
