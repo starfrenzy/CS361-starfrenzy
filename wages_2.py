@@ -31,7 +31,8 @@ def wages_calc(day=0, daily_totals=None, day_names=None):
         wages_calc(day, daily_totals, day_names)
 
     else:  # stop and calculate
-        weekly_sum = daily_totals[0] + daily_totals[1] + daily_totals[2] + daily_totals[3] + daily_totals[4] + daily_totals[5] + daily_totals[6]
+        weekly_sum = daily_totals["Monday"] + daily_totals["Tuesday"] + daily_totals["Wednesday"] + \
+                     daily_totals["Thursday"] + daily_totals["Friday"] + daily_totals["Saturday"] + daily_totals["Sunday"]
         print(f"It's payday! Here's your record of this week's hours: {daily_totals}.")
         print(f"{weekly_sum} is the total number of hours worked this week.")
         wages = wages_input()
