@@ -32,8 +32,8 @@ def wages_calc(day=0, daily_totals=None, day_names=None):
 
     else:  # stop and calculate
         weekly_sum = daily_totals[0] + daily_totals[1] + daily_totals[2] + daily_totals[3] + daily_totals[4] + daily_totals[5] + daily_totals[6]
-        print(f"It's payday! \n{weekly_sum} is the total number of hours worked this week.")
-        print(f"The daily hours were {daily_totals}.")
+        print(f"It's payday! Here's your record of this week's hours: {daily_totals}.")
+        print(f"{weekly_sum} is the total number of hours worked this week.")
         wages = wages_input()
         payment = weekly_sum * wages
         print(f"\nThe total amount due is ${payment}.")
@@ -53,7 +53,7 @@ def wages_input():  # separate function to allow for CSH 5 Undo/Redo/Backtrackin
         return wages
 
     else:
-        wages_input()
+        return wages_input()
 
 
 def hours_input():
