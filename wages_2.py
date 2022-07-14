@@ -1,24 +1,39 @@
 import time
 
 
-def wages_calc(day=0, daily_totals={}):
+def wages_calc(day=0, daily_totals=None, day_names=None):
     """
     This function asks a user for daily hours worked and wages paid and calculates a payment sum.
     """
-    print("Let's record today's hours.")
+    if daily_totals is None:
+        daily_totals = {}
+
+    if day_names is None:
+        day_names = {
+            0 : "Monday",
+            2 : "Tuesday",
+            3 : "Wednesday",
+            4 : "Thursday",
+            5 : "Friday",
+            6 : "Saturday",
+            7 : "Sunday"
+        }
+    print(f"Today is {day_names[day]}. Let's record today's hours.")
     todays_hours = hours_input()
-    daily_totals[day] = todays_hours
+    today = day_names[day]
+    daily_totals[today] = todays_hours
     day += 1
-    # print(daily_totals)  # use this to check whether a "n" response in 'hours_input' records "None" in the daily_totals dictionary
+    print(daily_totals)  # todo remove before final submit - just checking for None
 
     if day != 7:
         print("Thanks! See you tomorrow.")
         time.sleep(3)
-        wages_calc(day, daily_totals)
+        wages_calc(day, daily_totals, day_names)
 
     else:  # stop and calculate
         weekly_sum = daily_totals[0] + daily_totals[1] + daily_totals[2] + daily_totals[3] + daily_totals[4] + daily_totals[5] + daily_totals[6]
         print(f"It's payday! \n{weekly_sum} is the total number of hours worked this week.")
+        print(f"The daily hours were {daily_totals}.")
         wages = wages_input()
         payment = weekly_sum * wages
         print(f"\nThe total amount due is ${payment}.")
