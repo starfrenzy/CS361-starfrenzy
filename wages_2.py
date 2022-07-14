@@ -70,7 +70,7 @@ def hours_input():
         return hours
 
     else:
-        hours_input()    # todo fix error returning NONE - messing up calculations
+        return hours_input()
 
 
 wages_calc()
