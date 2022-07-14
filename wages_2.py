@@ -11,12 +11,12 @@ def wages_calc(day=0, daily_totals=None, day_names=None):
     if day_names is None:
         day_names = {
             0 : "Monday",
-            2 : "Tuesday",
-            3 : "Wednesday",
-            4 : "Thursday",
-            5 : "Friday",
-            6 : "Saturday",
-            7 : "Sunday"
+            1 : "Tuesday",
+            2 : "Wednesday",
+            3 : "Thursday",
+            4 : "Friday",
+            5 : "Saturday",
+            6 : "Sunday"
         }
     print(f"Today is {day_names[day]}. Let's record today's hours.")
     todays_hours = hours_input()
