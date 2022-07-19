@@ -18,7 +18,7 @@ def wages_calc(day=0, daily_totals=None, day_names=None):
             5 : "Saturday",
             6 : "Sunday"
         }
-    print(f"Today is {day_names[day]}. Let's record today's hours.")
+    print(f"It's {day_names[day]}!")
     todays_hours = hours_input()
     today = day_names[day]
     daily_totals[today] = todays_hours
@@ -26,14 +26,14 @@ def wages_calc(day=0, daily_totals=None, day_names=None):
     print(daily_totals)  # todo remove before final submit - just checking for None
 
     if day != 7:
-        print("Thanks! See you tomorrow.")
+        print("Thanks! See you tomorrow.\n")
         time.sleep(3)
         wages_calc(day, daily_totals, day_names)
 
     else:  # stop and calculate
         weekly_sum = daily_totals["Monday"] + daily_totals["Tuesday"] + daily_totals["Wednesday"] + \
                      daily_totals["Thursday"] + daily_totals["Friday"] + daily_totals["Saturday"] + daily_totals["Sunday"]
-        print(f"It's payday! Here's your record of this week's hours: {daily_totals}.")
+        print(f"It's payday! \nHere's your record of this week's hours: {daily_totals}.")
         print(f"{weekly_sum} is the total number of hours worked this week.")
         wages = wages_input()
         payment = weekly_sum * wages
