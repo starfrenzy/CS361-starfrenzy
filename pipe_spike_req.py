@@ -1,23 +1,23 @@
 #
-#   Hello World server in Python
-#   Binds REP socket to tcp://*:5555
-#   Expects b"Hello" from client, replies with b"World"
+#   CS361 client in Python
+#   Connects REQ socket to tcp://localhost:5555
+#   Sends "A message from CS361" to server, expects the same message back
 #
 
-import time
 import zmq
 
 context = zmq.Context()
-socket = context.socket(zmq.REP)
-socket.bind("tcp://*:5555")
 
-while True:
-    #  Wait for next request from client
-    message = socket.recv()
-    print(f"Received request: {message}")
+#  Socket to talk to server
+print("Connecting to CS361 server...")
+socket = context.socket(zmq.REQ)
+socket.connect("tcp://localhost:5555")
 
-    #  Do some 'work'
-    time.sleep(1)
-
-    #  Send reply back to client
+#  Do 10 requests, waiting each time for a response
+for request in range(10):
+    print(f"Sending request {request} ...")
     socket.send_string("A message from CS361")
+
+    #  Get the reply.
+    message = socket.recv()
+    print(f"Received reply {request} [ {message} ]")

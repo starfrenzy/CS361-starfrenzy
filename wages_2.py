@@ -23,18 +23,18 @@ def wages_calc(day=0, daily_totals=None, day_names=None):
     today = day_names[day]
     daily_totals[today] = todays_hours
     day += 1
-    print(daily_totals)  # todo remove before final submit - just checking for None
+    print(f"\nDaily totals: {daily_totals}")
 
     if day != 7:
         print("Thanks! See you tomorrow.\n")
-        time.sleep(3)
+        time.sleep(2)
         wages_calc(day, daily_totals, day_names)
 
     else:  # stop and calculate
         weekly_sum = daily_totals["Monday"] + daily_totals["Tuesday"] + daily_totals["Wednesday"] + \
                      daily_totals["Thursday"] + daily_totals["Friday"] + daily_totals["Saturday"] + daily_totals["Sunday"]
-        print(f"It's payday! \nHere's your record of this week's hours: {daily_totals}.")
-        print(f"{weekly_sum} is the total number of hours worked this week.")
+        print(f"\nIt's payday! \nHere's your record of this week's hours: {daily_totals}.")
+        print(f"{weekly_sum} is the total number of hours worked this week.\n")
         wages = wages_input()
         payment = weekly_sum * wages
         print(f"\nThe total amount due is ${payment}.")
@@ -65,6 +65,11 @@ def hours_input():
     """
     hours_str = input("How many hours were worked today? ")
     hours = float(hours_str)
+
+    if hours < 0:
+        print("Error: Please enter a positive number.")
+        return hours_input()
+
     verify_2 = input(f"Is {hours} hours correct? Y/N: ")  # CSH 5 Undo/Redo/Backtracking
 
     if verify_2.lower() == "y":
