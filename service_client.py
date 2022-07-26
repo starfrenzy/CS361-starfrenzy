@@ -1,5 +1,5 @@
 #
-#   CS361 client in Python
+#   Service Request client in Python
 #   Connects REQ socket to tcp://localhost:5555
 #   Sends "A message from CS361" to server, expects a tenant's service request back
 #
@@ -14,7 +14,7 @@ socket = context.socket(zmq.REQ)
 socket.connect("tcp://localhost:1999")
 
 #  Do 10 requests, waiting each time for a response
-while True:
+for request in range(10):
     print("Sending request ...")
     socket.send_string("Please Enter Your Service Request")
 

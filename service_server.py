@@ -1,5 +1,5 @@
 #
-#   Hello World server in Python
+#   Service Request server in Python
 #   Binds REP socket to tcp://*:5555
 #   Expects "A message from CS361", Sends a tenant's service request back
 #
