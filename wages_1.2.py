@@ -10,19 +10,8 @@ def wages_calc(day=0, daily_totals=None):
     if daily_totals is None:
         daily_totals = {}
 
-    # if day_names is None:
-    #     day_names = {
-    #         0 : "Monday",
-    #         2 : "Tuesday",
-    #         3 : "Wednesday",
-    #         4 : "Thursday",
-    #         5 : "Friday",
-    #         6 : "Saturday",
-    #         7 : "Sunday"
-    #     }
     print("Let's record today's hours.")
     todays_hours = hours_input()
-    #today = day_names[day]
     daily_totals[day] = todays_hours
     day += 1
     print(daily_totals)  # todo remove before final submit - just checking for None
