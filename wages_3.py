@@ -43,6 +43,9 @@ def wages_calc(day=0, daily_totals=None, day_names=None):
         payment = weekly_sum * wages
         print(f"\nThe total amount due is ${payment}.")
 
+        daily_totals.update({"Total Hours": weekly_sum, "Amount Paid": payment})
+
+        # microservice starts here
         context = zmq.Context()
 
         #  Socket to talk to server
