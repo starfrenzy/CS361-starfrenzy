@@ -1,4 +1,5 @@
 import time
+import zmq
 
 
 def wages_calc(day=0, daily_totals=None, day_names=None):
@@ -18,16 +19,17 @@ def wages_calc(day=0, daily_totals=None, day_names=None):
             5 : "Saturday",
             6 : "Sunday"
         }
-    print(f"It's {day_names[day]}!")
+
+    today = day_names[day]  # new week starts on Monday
+    print(f"It's {today}!")
     todays_hours = hours_input()
-    today = day_names[day]
     daily_totals[today] = todays_hours
     day += 1
     print(f"\nDaily totals: {daily_totals}")
 
     if day != 7:
         print("Thanks! See you tomorrow.\n")
-        time.sleep(2)
+        time.sleep(1)
         wages_calc(day, daily_totals, day_names)
 
     else:  # stop and calculate
@@ -38,6 +40,7 @@ def wages_calc(day=0, daily_totals=None, day_names=None):
         wages = wages_input()
         payment = weekly_sum * wages
         print(f"\nThe total amount due is ${payment}.")
+
 
 
 def wages_input():  # separate function to allow for CSH 5 Undo/Redo/Backtracking
