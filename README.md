@@ -11,8 +11,20 @@ It allows the user to enter the hours worked each day. At the end of the week, a
 ```
 2. Then, simply run ‘wages_2.py’ and input information as requested.
 
+### Alternate version 'wages_3.py' that stores each week's info:
+Visit 
+After installing pyzmq, visit the [361-service-request](https://github.com/starfrenzy/361-service-request) repository for the following files:
+- addict_server.py
+- request_list.json
+
+1. Run 'addict_server.py'
+2. Run 'wages_3.py'
+3. Open 'request_list.json' to see the record of all weeks' hours and payments.
+
+_Clear 'request_list.json' before running a fresh instance of the wages_3.py program._
+
 
 ### Where users can get help
-
+Email Jessi at starfrenzy@hotmail.com.
 
 #### Jessi Frenzel maintains and contributes to this project.
