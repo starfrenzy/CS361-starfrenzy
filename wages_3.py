@@ -23,25 +23,26 @@ def wages_calc(day=0, daily_totals=None, day_names=None):
         }
 
     today = day_names[day]  # new week starts on Monday
-    print(f"It's {today}!")
+    print(f"It's {today}! Let's record today's hours.")
     todays_hours = hours_input()
     daily_totals[today] = todays_hours
     day += 1
     print(f"\nDaily totals: {daily_totals}")
 
     if day != 7:
-        print("Thanks! See you tomorrow.\n")
+        print(f"{today}'s hours have been recorded! Please make sure to enter hours every single day"
+              f" to receive a total.\n")
         time.sleep(2)
         wages_calc(day, daily_totals, day_names)
 
     else:  # stop and calculate
         weekly_sum = daily_totals["Monday"] + daily_totals["Tuesday"] + daily_totals["Wednesday"] + \
                      daily_totals["Thursday"] + daily_totals["Friday"] + daily_totals["Saturday"] + daily_totals["Sunday"]
-        print(f"\nIt's payday! \nHere's your record of this week's hours: {daily_totals}.")
+        print("\nIt's payday!")
         print(f"{weekly_sum} is the total number of hours worked this week.\n")
         wages = wages_input()
         payment = weekly_sum * wages
-        print(f"\nThe total amount due is ${payment}.")
+        print(f"\nThe total amount due is ${payment:.2f}.")
 
         daily_totals.update({"Total Hours": weekly_sum, "Amount Paid": payment})
 
@@ -70,7 +71,7 @@ def wages_input():  # separate function to allow for CSH 5 Undo/Redo/Backtrackin
     """
     wages_str = input("How much do you pay per hour? ")
     wages = float(wages_str)
-    verify_1 = input(f"Is ${wages} per hour the correct wage? Y/N: ")  # CSH 5 Undo/Redo/Backtracking
+    verify_1 = input(f"Is ${wages:.2f} per hour the correct wage? Y/N: ")  # CSH 5 Undo/Redo/Backtracking
 
     if verify_1.lower() == "y":
         return wages
@@ -85,7 +86,7 @@ def hours_input():
     number of hours for use in the wage_calc function.
     Verification allows for CSH 5: Undo/Redo/Backtracking.
     """
-    hours_str = input("How many hours were worked today? ")
+    hours_str = input("How many hours were worked? ")
     hours = float(hours_str)
 
     if hours < 0:
