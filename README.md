@@ -4,7 +4,7 @@ The file ‘wages_2.py’ is an hours tracker that calculates weekly payment amo
 
 It allows the user to enter the hours worked each day. At the end of the week, a printout of the daily hours is provided, as well as a total. The user sets the wage amount and a total payment is provided.
 
-### How to get started with the main project (wages.py):
+### How to get started with the main project (wages_2.py):
 1. IMPORTANT: Visit the “Building and Installing” section at [this page](https://pypi.org/project/pyzmq/) to install the ZeroMQ Python library.  This is the command:
 ```
  pip install pyzmq
@@ -22,6 +22,8 @@ After installing pyzmq, visit the [361-service-request](https://github.com/starf
 3. Open 'request_list.json' to see the record of all weeks' hours and payments.
 
 _Clear 'request_list.json' before running a fresh instance of the wages_3.py program._
+
+[Video explaining wages_3.py](https://media.oregonstate.edu/media/1_3n60zfnp)
 
 
 ### Where users can get help
