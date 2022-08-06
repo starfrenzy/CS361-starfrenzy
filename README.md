@@ -13,7 +13,7 @@ It allows the user to enter the hours worked each day. At the end of the week, a
 
 ### Alternate version 'wages_3.py' that stores each week's info:
 Visit 
-After installing pyzmq, visit the [361-service-request](https://github.com/starfrenzy/361-service-request) repository for the following files:
+After installing pyzmq, open the following files found in this repository:
 - addict_server.py
 - request_list.json
 
